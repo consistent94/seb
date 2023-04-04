@@ -1,11 +1,20 @@
 /* Color Palette */
 :root {
     --primary-color: #2c2c2c;
-    --secondary-color: #dcd6f7;
-    --accent-color: #ff6b6b;
+    --secondary-color: #77b6ff;
+    --accent-color: #343a40;
     --light-color: #f8f8f8;
     --dark-color: #1f1f1f;
   }
+
+  [data-theme='dark'] {
+    --primary-color: #77b6ff;
+    --secondary-color: #343a40;
+    --accent-color: #61dafb;
+    --light-color: #2d333b;
+    --dark-color: #1f1f1f;
+  }
+  
   
   /* Global Styles */
   * {
@@ -78,6 +87,22 @@
     color: var(--accent-color);
   }
   
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav li {
+    margin: 0 1rem;
+  }
+  
+  .toggle-container {
+    display: flex;
+    align-items: center;
+  }
+  
   /* Hero Section */
   #home {
     height: 100vh;
@@ -145,6 +170,13 @@
     max-width: 400px;
     margin-right: 40px;
   }
+
+  .project iframe {
+    width: 100%;
+    max-width: 400px;
+    margin-right: 40px;
+    /* border-radius: 10%; */
+  }
   
   .project-info h3 {
     font-size: 24px;
@@ -161,3 +193,48 @@
     font-size: 18px;
     padding: 10px
   }  
+
+  .toggle-container {
+    /* display: inline-block; */
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+  
+  .toggle {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .toggle-label {
+    display: block;
+    cursor: pointer;
+    width: 50px;
+    height: 26px;
+    background-color: #d4d4d4;
+    border-radius: 50px;
+    position: relative;
+    transition: background-color 0.2s ease;
+  }
+  
+  .toggle-label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+    transition: left 0.2s ease;
+  }
+  
+  .toggle:checked + .toggle-label {
+    background-color: var(--dark-color);
+  }
+  
+  .toggle:checked + .toggle-label:after {
+    left: 26px;
+  }
+  
